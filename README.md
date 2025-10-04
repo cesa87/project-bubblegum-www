@@ -1,16 +1,108 @@
-# React + Vite
+# 🖥️ cNada - Retro Terminal Privacy Phone Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deploy to AWS CloudFront](https://github.com/cesa87/project-bubblegum-www/actions/workflows/deploy.yml/badge.svg)](https://github.com/cesa87/project-bubblegum-www/actions/workflows/deploy.yml)
 
-Currently, two official plugins are available:
+A vintage computer terminal-themed e-commerce website for privacy-focused Pixel devices running cNadaOS. Features authentic CRT monitor effects, phosphor glow, and 80s-90s computer UI aesthetics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **Live Site:** [https://project-bubblegum.shop](https://project-bubblegum.shop)
 
-## React Compiler
+## 🎨 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Retro CRT Effects:** Scan lines, phosphor glow, screen curvature
+- **Vintage Terminal UI:** ASCII art, green/amber monochrome display
+- **Privacy-First Messaging:** Selling de-Googled Pixel devices
+- **Responsive Design:** Works on all devices
+- **Fast Performance:** Built with Vite + React
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Deployment
+
+This project auto-deploys to AWS CloudFront on push to main branch.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete setup instructions.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19.1.1
+- **Build Tool:** Vite 7.1.7
+- **Routing:** React Router DOM
+- **Styling:** Custom CSS with retro effects
+- **Font:** VT323 (Google Fonts)
+- **Deployment:** AWS S3 + CloudFront
+- **CI/CD:** GitHub Actions
+
+## 📁 Project Structure
+
+```
+project-bubblegum-web/
+├── src/
+│   ├── App.jsx          # Main app with routing
+│   ├── Home.jsx         # Landing page
+│   ├── Devices.jsx      # Device catalog
+│   ├── App.css          # Main styles
+│   ├── Devices.css      # Device page styles
+│   └── index.css        # Global styles + CRT effects
+├── .github/
+│   └── workflows/
+│       └── deploy.yml   # GitHub Actions CI/CD
+├── scripts/
+│   └── setup-s3-bucket.sh  # AWS setup helper
+└── DEPLOYMENT.md        # Deployment documentation
+```
+
+## 🎯 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+- `npm run deploy:check` - Test build before deployment
+- `npm run aws:setup` - Run S3 bucket setup script
+
+## 🔧 Environment Setup
+
+For deployment, you'll need to set up these GitHub secrets:
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `S3_BUCKET_NAME`
+- `CLOUDFRONT_DISTRIBUTION_ID`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+## 🎨 Customizing the Retro Effects
+
+The retro CRT effects can be customized in `src/index.css`:
+
+- Scan lines animation speed
+- Phosphor glow intensity
+- Screen flicker rate
+- Color scheme (green/amber)
+
+## 📝 License
+
+Private repository - All rights reserved
+
+## 🤝 Contributing
+
+This is a private project. Please contact the repository owner for contribution guidelines.
+
+## 📧 Contact
+
+For questions about the project or deployment, please open an issue in the repository.
