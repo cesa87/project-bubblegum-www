@@ -1,0 +1,22 @@
+# Copy this file to terraform.tfvars and customize the values
+
+# AWS Region (us-east-1 recommended for CloudFront)
+aws_region = "us-east-1"
+
+# Environment (production, staging, development)
+environment = "production"
+
+# Project name for resource tagging
+project_name = "project-bubblegum"
+
+# Your domain name
+domain_name = "project-bubblegum.shop"
+
+# S3 bucket name (must be globally unique)
+bucket_name = "project-bubblegum-shop"
+
+# CloudFront price class
+# PriceClass_All = All edge locations (best performance)
+# PriceClass_200 = Most regions (good performance, lower cost)
+# PriceClass_100 = US, Canada, Europe only (lowest cost)
+cloudfront_price_class = "PriceClass_All"
