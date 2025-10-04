@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Home'
 import Devices from './Devices'
+import Privacy from './Privacy'
 import './App.css'
+import './Privacy.css'
 
 function App() {
 
@@ -24,11 +26,13 @@ function App() {
                   <span className="nav-prefix">./</span>devices
                 </Link>
               </li>
-              <li className="nav-item">
-                <span className="nav-prefix">./</span>about
+              <li>
+                <Link to="/privacy" className="nav-item">
+                  <span className="nav-prefix">./</span>privacy
+                </Link>
               </li>
               <li className="nav-item">
-                <span className="nav-prefix">./</span>security
+                <span className="nav-prefix">./</span>about
               </li>
               <li className="nav-item">
                 <span className="nav-prefix">./</span>docs
@@ -47,6 +51,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/devices" element={<Devices />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </div>
     </Router>
