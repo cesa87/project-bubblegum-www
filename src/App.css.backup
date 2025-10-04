@@ -1,0 +1,512 @@
+.terminal {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+/* Navigation Styles */
+.terminal-nav {
+  background: #000000;
+  border-bottom: 2px solid #00ff00;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 255, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-prompt {
+  color: #00ff00;
+  animation: blink 1s infinite;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-menu li {
+  list-style: none;
+}
+
+.nav-item {
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  padding: 5px 0;
+  color: #00ff00;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-prefix {
+  color: #008800;
+  margin-right: 2px;
+}
+
+.nav-item:hover {
+  text-shadow: 0 0 10px #00ff00;
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.nav-item.active::after {
+  content: '_';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  animation: blink 1s infinite;
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: 1px solid #00ff00;
+  border-radius: 3px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.status-text {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.terminal-header {
+  border-bottom: 1px solid #00ff00;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.terminal-title {
+  color: #00ff00;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.terminal-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ascii-art {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.ascii-art pre {
+  color: #00ff00;
+  font-size: clamp(8px, 1.5vw, 14px);
+  line-height: 1.2;
+  text-shadow: 0 0 10px #00ff00;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+  to {
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+}
+
+.typing-text {
+  font-size: 24px;
+  margin: 40px 0;
+  text-align: center;
+  min-height: 40px;
+}
+
+.prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.typed {
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.cursor {
+  opacity: 0;
+  color: #00ff00;
+  animation: none;
+}
+
+.cursor.visible {
+  opacity: 1;
+}
+
+.content {
+  margin-top: 60px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.phone-visual {
+  position: sticky;
+  top: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.phone-device {
+  width: 220px;
+  height: 440px;
+  border: 3px solid #00ff00;
+  border-radius: 20px;
+  background: #0a0a0a;
+  padding: 10px;
+  position: relative;
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 0.5),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 0, 0.5),
+      inset 0 0 20px rgba(0, 255, 0, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 50px rgba(0, 255, 0, 0.7),
+      inset 0 0 30px rgba(0, 255, 0, 0.2);
+  }
+}
+
+.phone-screen {
+  width: 100%;
+  height: calc(100% - 40px);
+  background: #000000;
+  border: 1px solid #00ff00;
+  border-radius: 10px;
+  padding: 15px 10px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.phone-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(0, 255, 0, 0.03) 50%,
+    transparent 100%
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.phone-terminal {
+  font-size: 9px;
+  color: #00ff00;
+  line-height: 1.4;
+}
+
+.terminal-line {
+  margin: 2px 0;
+  text-shadow: 0 0 3px #00ff00;
+}
+
+.terminal-line.green-glow {
+  color: #00ff00;
+  font-weight: bold;
+  animation: text-glow 2s infinite;
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #00ff00;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  }
+}
+
+.progress-bar {
+  color: #00ff00;
+}
+
+.phone-logo {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.phone-button {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #00ff00;
+  border-radius: 50%;
+  margin: 10px auto 0;
+  background: #0a0a0a;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.phone-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #00ff00;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+}
+
+.status-indicator {
+  animation: blink 1s infinite;
+  font-size: 16px;
+}
+
+.status-text {
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.blink-text {
+  animation: blink 1.5s infinite;
+}
+
+.section {
+  margin: 40px 0;
+}
+
+.command-line {
+  margin-bottom: 10px;
+}
+
+.command {
+  color: #00ff00;
+}
+
+.output {
+  margin-left: 20px;
+  color: #00cc00;
+  line-height: 1.8;
+}
+
+.file-list {
+  font-family: 'Courier New', monospace;
+}
+
+.file {
+  margin: 5px 0;
+  color: #00cc00;
+}
+
+.highlight {
+  background: #00ff00;
+  color: #0a0a0a;
+  padding: 2px 6px;
+  margin-left: 10px;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0.3;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.feature {
+  color: #00cc00;
+  padding: 5px 0;
+}
+
+.cta-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 60px 0;
+  flex-wrap: wrap;
+}
+
+.terminal-button {
+  background: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 15px 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-button:hover {
+  background: #00ff00;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px #00ff00;
+  transform: translateY(-2px);
+}
+
+.terminal-button:active {
+  transform: translateY(0);
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid #00ff00;
+}
+
+.footer .command-line {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .phone-visual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item {
+    padding: 10px;
+    border-bottom: 1px solid #003300;
+  }
+  
+  .terminal {
+    padding: 0;
+  }
+  
+  .typing-text {
+    font-size: 18px;
+  }
+  
+  .ascii-art pre {
+    font-size: 8px;
+  }
+  
+  .cta-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .terminal-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
