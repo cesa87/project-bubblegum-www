@@ -1,31 +1,26 @@
 .terminal {
   min-height: 100vh;
-  background: transparent;
-  color: #00ff88;
-  font-family: 'Orbitron', monospace;
+  background: #000000;
+  color: #41ff00;
+  font-family: 'VT323', 'Courier New', monospace;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Vintage CRT Navigation Bar */
+/* Navigation Styles - Retro Computer Header */
 .terminal-nav {
-  background: 
-    linear-gradient(135deg, rgba(42, 63, 95, 0.95) 0%, rgba(26, 35, 50, 0.95) 100%),
-    radial-gradient(circle at 30% 50%, rgba(0, 255, 136, 0.1), transparent),
-    radial-gradient(circle at 70% 50%, rgba(255, 0, 255, 0.1), transparent);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  margin: 20px;
-  padding: 20px 30px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+  border-top: 3px solid #41ff00;
+  border-bottom: 3px double #41ff00;
+  padding: 12px 15px;
   position: sticky;
-  top: 20px;
+  top: 0;
   z-index: 1000;
   box-shadow: 
-    0 10px 40px rgba(0, 255, 136, 0.2),
-    inset 0 2px 10px rgba(255, 255, 255, 0.1),
-    inset 0 -2px 10px rgba(0, 0, 0, 0.3);
-  border: 2px solid;
-  border-image: linear-gradient(45deg, #00ff88, #00ffcc, #ff00ff) 1;
+    0 4px 0 0 #2a2a2a,
+    0 8px 0 0 #1a1a1a,
+    0 8px 20px rgba(65, 255, 0, 0.4),
+    inset 0 1px 0 rgba(65, 255, 0, 0.3);
 }
 
 .nav-container {
@@ -39,29 +34,57 @@
   position: relative;
 }
 
-
-.nav-logo {
-  font-size: 24px;
-  font-weight: 900;
-  font-family: 'Press Start 2P', cursive;
-  color: #00ff88;
-  text-shadow: 
-    4px 4px 0 rgba(255, 0, 255, 0.3),
-    -2px -2px 0 rgba(0, 255, 255, 0.3),
-    0 0 20px rgba(0, 255, 136, 0.6);
-  text-decoration: none;
-  display: inline-block;
-  letter-spacing: 2px;
-  animation: retro-glow 2s ease-in-out infinite alternate;
-  transform: perspective(300px) rotateX(10deg);
+.nav-container::before {
+  content: "╔═══════════════════════════════════════════════════════════════╗";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  color: #41ff00;
+  font-size: 12px;
+  opacity: 0.5;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-@keyframes retro-glow {
-  0% {
-    filter: brightness(1) hue-rotate(0deg);
+.nav-logo {
+  font-size: 28px;
+  font-weight: normal;
+  color: #41ff00;
+  text-shadow: 
+    2px 2px 0 #1a3300,
+    0 0 10px #41ff00,
+    0 0 20px #41ff00;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 3px;
+  animation: logo-glitch 3s infinite;
+}
+
+@keyframes logo-glitch {
+  0%, 95% {
+    text-shadow: 
+      2px 2px 0 #1a3300,
+      0 0 10px #41ff00,
+      0 0 20px #41ff00;
   }
-  100% {
-    filter: brightness(1.1) hue-rotate(5deg);
+  96% {
+    text-shadow: 
+      -2px 0 #ff0000,
+      2px 2px 0 #00ffff,
+      0 0 10px #41ff00;
+  }
+  97% {
+    text-shadow: 
+      2px 2px 0 #1a3300,
+      0 0 10px #41ff00,
+      0 0 20px #41ff00;
+  }
+  98% {
+    text-shadow: 
+      -2px 2px 0 #ff00ff,
+      2px -2px 0 #ffff00,
+      0 0 15px #41ff00;
   }
 }
 
@@ -86,16 +109,14 @@
 
 .nav-item {
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.1s;
   position: relative;
-  padding: 10px 20px;
-  color: #00ffcc;
+  padding: 5px 8px;
+  color: #41ff00;
   text-decoration: none;
   display: inline-block;
-  background: rgba(0, 255, 136, 0.05);
-  border-radius: 10px;
-  font-weight: 600;
-  backdrop-filter: blur(5px);
+  background: linear-gradient(180deg, transparent 0%, rgba(65, 255, 0, 0.05) 100%);
+  border: 1px solid transparent;
 }
 
 .nav-prefix {
@@ -105,12 +126,12 @@
 }
 
 .nav-item:hover {
-  background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
-  box-shadow: 
-    0 4px 15px rgba(0, 255, 136, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px) scale(1.05);
-  color: #ff00ff;
+  background: rgba(65, 255, 0, 0.1);
+  border: 1px solid #41ff00;
+  text-shadow: 
+    0 0 5px #41ff00,
+    1px 1px 0 #1a3300;
+  transform: skewX(-2deg);
 }
 
 .nav-item.active {
@@ -220,21 +241,16 @@
 }
 
 .ascii-art pre {
-  color: #00ff88;
-  font-size: clamp(10px, 1.5vw, 14px);
-  line-height: 1.2;
-  font-family: 'Press Start 2P', monospace;
-  background: linear-gradient(180deg, #00ff88, #00ffcc, #ff00ff, #ffff00);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow-shift 3s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
-}
-
-@keyframes rainbow-shift {
-  0% { filter: hue-rotate(0deg) drop-shadow(0 0 10px rgba(0, 255, 136, 0.5)); }
-  100% { filter: hue-rotate(360deg) drop-shadow(0 0 10px rgba(255, 0, 255, 0.5)); }
+  color: #41ff00;
+  font-size: clamp(10px, 1.8vw, 16px);
+  line-height: 1;
+  text-shadow: 
+    0 0 5px #41ff00,
+    0 0 10px #41ff00,
+    2px 2px 0 #1a3300;
+  animation: ascii-flicker 4s infinite;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
 }
 
 @keyframes ascii-flicker {
@@ -595,26 +611,23 @@
 }
 
 .terminal-button {
-  background: 
-    linear-gradient(135deg, #2a3f5f 0%, #1a2332 100%),
-    radial-gradient(circle at 30% 50%, rgba(0, 255, 136, 0.2), transparent);
-  border-radius: 12px;
-  border: 3px solid;
-  border-image: linear-gradient(45deg, #00ff88, #00ffcc, #00ccff) 1;
-  color: #00ff88;
-  padding: 15px 30px;
-  font-family: 'Orbitron', monospace;
-  font-size: 16px;
-  font-weight: 700;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 2px solid #41ff00;
+  color: #41ff00;
+  padding: 12px 25px;
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: normal;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.1s;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
   box-shadow: 
-    0 6px 20px rgba(0, 255, 136, 0.3),
-    inset 0 2px 10px rgba(255, 255, 255, 0.1);
-  letter-spacing: 1px;
+    inset 0 1px 0 rgba(65, 255, 0, 0.3),
+    0 4px 0 0 #1a3300,
+    0 5px 5px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
 }
 
 .terminal-button::before {
@@ -661,298 +674,10 @@
   margin-top: 80px;
   padding-top: 20px;
   border-top: 1px solid #00ff00;
-  text-align: center;
-  color: #41ff00;
-  font-size: 12px;
-  opacity: 0.7;
 }
 
-/* New Visual Home Page Styles */
-.mission-section {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.retro-title {
-  font-family: 'Press Start 2P', monospace;
-  color: #00ffcc;
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  text-shadow: 
-    0 0 10px #00ffcc,
-    0 0 20px #00ffcc,
-    0 0 30px #00ffcc;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
-  to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc; }
-}
-
-.mission-card {
-  background: linear-gradient(135deg, rgba(0,255,204,0.1), rgba(255,0,255,0.05));
-  border: 2px solid #00ffcc;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 
-    0 0 20px rgba(0,255,204,0.5),
-    inset 0 0 20px rgba(0,255,204,0.1);
-}
-
-.mission-text {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.2rem;
-  color: #ffffff;
-  line-height: 1.8;
-  text-shadow: 0 0 5px rgba(255,255,255,0.5);
-}
-
-/* Devices Showcase */
-.devices-showcase {
-  margin: 50px 0;
-}
-
-.device-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.device-card {
-  position: relative;
-  background: linear-gradient(145deg, rgba(0,30,60,0.9), rgba(0,15,30,0.9));
-  border: 2px solid #00ffcc;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 
-    0 0 15px rgba(0,255,204,0.3),
-    inset 0 0 10px rgba(0,255,204,0.1);
-}
-
-.device-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  border-color: #ff00ff;
-  box-shadow: 
-    0 0 25px rgba(255,0,255,0.5),
-    inset 0 0 15px rgba(255,0,255,0.2);
-}
-
-.device-card h3 {
-  font-family: 'Orbitron', monospace;
-  color: #00ffcc;
-  margin: 15px 0 10px;
-  font-size: 1.2rem;
-}
-
-.device-card p {
-  color: #ffff00;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.badge.new {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: linear-gradient(45deg, #ff00ff, #ff0080);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  animation: pulse 1.5s infinite;
-  box-shadow: 0 0 20px rgba(255,0,255,0.5);
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-/* Features Section */
-.features-section {
-  margin: 50px 0;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  padding: 30px;
-}
-
-.feature-card {
-  background: linear-gradient(135deg, rgba(0,255,204,0.05), rgba(255,0,255,0.05));
-  border: 1px solid rgba(0,255,204,0.5);
-  border-radius: 15px;
-  padding: 25px;
-  text-align: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.feature-card:hover {
-  background: linear-gradient(135deg, rgba(0,255,204,0.15), rgba(255,0,255,0.15));
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,255,204,0.3);
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px rgba(0,255,204,0.5));
-}
-
-.feature-card h3 {
-  font-family: 'Press Start 2P', monospace;
-  color: #00ffcc;
-  font-size: 0.9rem;
-  margin: 10px 0;
-}
-
-.feature-card p {
-  color: #ffffff;
-  opacity: 0.7;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-/* Phone Visual Redesign */
-.phone-frame {
-  width: 250px;
-  height: 450px;
-  background: linear-gradient(145deg, #1a1a2e, #0f0f1e);
-  border-radius: 30px;
-  padding: 20px;
-  box-shadow: 
-    0 0 50px rgba(0,255,204,0.3),
-    inset 0 0 20px rgba(0,0,0,0.5),
-    0 0 100px rgba(255,0,255,0.2);
-  border: 3px solid #00ffcc;
-  position: relative;
-  overflow: hidden;
-}
-
-.phone-frame::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(0,255,204,0.1) 50%,
-    transparent 70%
-  );
-  animation: shine 3s infinite;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.phone-screen-content {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0,15,30,0.95), rgba(0,30,60,0.95));
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.phone-display {
-  text-align: center;
-  padding: 20px;
-}
-
-.phone-title {
-  font-family: 'Press Start 2P', monospace;
-  color: #00ffcc;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  text-shadow: 
-    0 0 20px #00ffcc,
-    0 0 40px #00ffcc;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-.phone-features {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 30px 0;
-}
-
-.phone-feature {
-  font-family: 'Orbitron', monospace;
-  color: #ffff00;
-  font-size: 1rem;
-  padding: 10px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,0,0.1), transparent);
-  border-left: 3px solid #ffff00;
-  text-align: left;
-  animation: slideInRight 0.5s ease-out backwards;
-}
-
-.phone-feature:nth-child(1) { animation-delay: 0.1s; }
-.phone-feature:nth-child(2) { animation-delay: 0.2s; }
-.phone-feature:nth-child(3) { animation-delay: 0.3s; }
-.phone-feature:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.phone-status-bar {
-  margin-top: 30px;
-}
-
-.status-badge {
-  background: linear-gradient(45deg, #00ff00, #00ffcc);
-  color: #000;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.8rem;
-  font-weight: bold;
-  animation: pulse 1.5s infinite;
-  box-shadow: 0 0 30px rgba(0,255,0,0.7);
-}
-
-/* Update button for primary state */
-.terminal-button.primary {
-  background: linear-gradient(45deg, #00ff88, #00ffcc);
-  color: #0a0e27;
-  font-weight: 700;
-  box-shadow: 
-    0 0 30px rgba(0,255,204,0.7),
-    inset 0 0 20px rgba(0,255,136,0.3);
-}
-
-.terminal-button.primary:hover {
-  background: linear-gradient(45deg, #00ffcc, #00ff88);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 0 40px rgba(0,255,204,0.9),
-    inset 0 0 30px rgba(0,255,136,0.4);
+.footer .command-line {
+  animation: pulse 1s infinite;
 }
 
 @keyframes pulse {

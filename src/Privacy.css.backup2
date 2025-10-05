@@ -1,0 +1,481 @@
+/* Privacy Page Styles */
+.privacy-container {
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ASCII Header */
+.ascii-header {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.ascii-header pre {
+  color: #41ff00;
+  font-size: clamp(8px, 1.2vw, 14px);
+  line-height: 1.2;
+  text-shadow: 
+    0 0 10px #41ff00,
+    0 0 20px #41ff00;
+  animation: security-pulse 3s infinite;
+}
+
+@keyframes security-pulse {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 
+      0 0 15px #ffff00,
+      0 0 30px #41ff00;
+  }
+}
+
+/* Typing Header */
+.typing-header {
+  font-size: 24px;
+  text-align: center;
+  margin: 30px 0;
+  color: #ffff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.typed-text {
+  color: #ffff00;
+  text-shadow: 
+    0 0 5px #ffff00,
+    2px 2px 0 #3a3a00;
+}
+
+.cursor-blink {
+  animation: cursor-blink 0.5s infinite;
+  color: #ffff00;
+  font-weight: bold;
+}
+
+/* Warning Box */
+.warning-box {
+  border: 3px double #ff3333;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 0, 0.05) 0%,
+    rgba(255, 51, 51, 0.02) 100%
+  );
+  padding: 20px;
+  margin: 30px 0;
+  position: relative;
+  animation: warning-flash 2s infinite;
+}
+
+@keyframes warning-flash {
+  0%, 90%, 100% {
+    border-color: #ff3333;
+  }
+  95% {
+    border-color: #ffff00;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+  }
+}
+
+.warning-header {
+  color: #ff3333;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: alert-blink 1s infinite;
+}
+
+@keyframes alert-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0.7;
+  }
+}
+
+.warning-content {
+  color: #41ff00;
+  line-height: 1.8;
+}
+
+.warning-content p {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.warning-content p::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: #ffff00;
+}
+
+.highlight-text {
+  color: #ffff00 !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #ffff00;
+}
+
+/* Privacy Tabs */
+.privacy-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tab-button {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 2px solid #41ff00;
+  color: #41ff00;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.tab-button:hover {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(65, 255, 0, 0.3);
+}
+
+.tab-button.active {
+  background: linear-gradient(180deg, #2a3a00 0%, #1a2a00 100%);
+  border-color: #ffff00;
+  color: #ffff00;
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 0, 0.2),
+    0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.tab-icon {
+  font-size: 20px;
+}
+
+/* Section Content */
+.section-content {
+  margin: 30px 0;
+  padding: 20px;
+  border: 2px solid #41ff00;
+  background: rgba(65, 255, 0, 0.02);
+}
+
+.section-header {
+  color: #ffff00;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.feature-item {
+  padding: 10px;
+  background: rgba(65, 255, 0, 0.03);
+  border-left: 3px solid #41ff00;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+.feature-item:hover {
+  background: rgba(65, 255, 0, 0.08);
+  transform: translateX(5px);
+}
+
+.feature-indicator {
+  color: #ffff00;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+.feature-text {
+  color: #41ff00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Technical Section */
+.tech-section {
+  margin: 40px 0;
+  padding: 20px;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(65, 255, 0, 0.02) 20px,
+      rgba(65, 255, 0, 0.02) 21px
+    );
+  border: 1px solid #2a8800;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tech-block {
+  padding: 15px;
+  border: 2px solid #41ff00;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.tech-block h3 {
+  color: #ffff00;
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-shadow: 0 0 5px #ffff00;
+}
+
+.tech-block ul {
+  list-style: none;
+}
+
+.tech-block li {
+  color: #41ff00;
+  margin: 8px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Comparison Table */
+.comparison-section {
+  margin: 40px 0;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0a0a0a;
+  border: 2px solid #41ff00;
+  margin-top: 20px;
+}
+
+.comparison-table th {
+  background: linear-gradient(180deg, #1a2a00 0%, #0a1a00 100%);
+  color: #ffff00;
+  padding: 15px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #41ff00;
+}
+
+.comparison-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #2a8800;
+  color: #41ff00;
+}
+
+.comparison-table .bad {
+  color: #ff3333;
+  font-weight: bold;
+}
+
+.comparison-table .good {
+  color: #00ff00;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.comparison-table tr:hover {
+  background: rgba(65, 255, 0, 0.05);
+}
+
+/* Use Cases */
+.use-cases {
+  margin: 40px 0;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.use-case {
+  padding: 20px;
+  border: 2px solid #41ff00;
+  background: 
+    linear-gradient(135deg, rgba(65, 255, 0, 0.05) 0%, transparent 100%);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.use-case::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 0, 0.2) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s;
+}
+
+.use-case:hover::before {
+  left: 100%;
+}
+
+.use-case:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(65, 255, 0, 0.3);
+  border-color: #ffff00;
+}
+
+.use-case h4 {
+  color: #ffff00;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-shadow: 0 0 5px #ffff00;
+}
+
+.use-case p {
+  color: #41ff00;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+/* Resistance Message */
+.resistance-message {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.resistance-message pre {
+  color: #ffff00;
+  font-size: 14px;
+  line-height: 1.4;
+  text-shadow: 
+    0 0 5px #ffff00,
+    0 0 10px #ffff00;
+  display: inline-block;
+  animation: message-glow 3s infinite;
+}
+
+@keyframes message-glow {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 
+      0 0 10px #ffff00,
+      0 0 20px #ffff00,
+      0 0 30px #41ff00;
+  }
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.terminal-button.primary {
+  background: linear-gradient(180deg, #2a2a00 0%, #1a1a00 100%);
+  border-color: #ffff00;
+  color: #ffff00;
+  animation: primary-pulse 2s infinite;
+}
+
+@keyframes primary-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+  }
+}
+
+/* Privacy Footer */
+.privacy-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 2px dotted #41ff00;
+}
+
+.privacy-footer .command-line {
+  margin: 10px 0;
+  color: #41ff00;
+}
+
+.privacy-footer .output {
+  color: #ffff00;
+  margin: 10px 0 20px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #ffff00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ascii-header pre {
+    font-size: 8px;
+  }
+  
+  .privacy-tabs {
+    flex-direction: column;
+  }
+  
+  .tab-button {
+    width: 100%;
+  }
+  
+  .tech-grid,
+  .use-case-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-table {
+    font-size: 12px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .terminal-button {
+    width: 100%;
+  }
+}

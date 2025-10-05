@@ -56,88 +56,115 @@ function Home() {
         <div className="content">
           <div className="content-grid">
             <div className="main-content">
-              <div className="section">
-                <div className="command-line">
-                  <span className="prompt">$ </span>
-                  <span className="command">cat /etc/mission.txt</span>
+              <div className="section mission-section">
+                <h2 className="retro-title">Our Mission</h2>
+                <div className="mission-card">
+                  <p className="mission-text">
+                    Premium Pixel phones with enhanced privacy.<br/>
+                    No tracking. No spying. Just pure freedom.
+                  </p>
                 </div>
-                <p className="output">
-                  We provide Pixel devices pre-installed with cNadaOS.<br/>
-                  Maximum privacy. Zero compromise. Complete control.
-                </p>
               </div>
 
-              <div className="section">
-                <div className="command-line">
-                  <span className="prompt">$ </span>
-                  <span className="command">ls -la /devices/available/</span>
-                </div>
-                <div className="output">
-                  <div className="file-list">
-                    <div className="file">drwxr-xr-x  pixel_9_pro_xl/     <span className="highlight">NEW</span></div>
-                    <div className="file">drwxr-xr-x  pixel_9_pro/        <span className="highlight">NEW</span></div>
-                    <div className="file">drwxr-xr-x  pixel_9/            <span className="highlight">NEW</span></div>
-                    <div className="file">drwxr-xr-x  pixel_8_pro/</div>
-                    <div className="file">drwxr-xr-x  pixel_8/</div>
-                    <div className="file">drwxr-xr-x  pixel_7a/</div>
+              <div className="section devices-showcase">
+                <h2 className="retro-title">Available Devices</h2>
+                <div className="device-grid">
+                  <div className="device-card">
+                    <span className="badge new">NEW</span>
+                    <h3>Pixel 9 Pro XL</h3>
+                    <p>Ultimate flagship</p>
+                  </div>
+                  <div className="device-card">
+                    <span className="badge new">NEW</span>
+                    <h3>Pixel 9 Pro</h3>
+                    <p>Pro performance</p>
+                  </div>
+                  <div className="device-card">
+                    <span className="badge new">NEW</span>
+                    <h3>Pixel 9</h3>
+                    <p>Perfect balance</p>
+                  </div>
+                  <div className="device-card">
+                    <h3>Pixel 8 Pro</h3>
+                    <p>Proven power</p>
+                  </div>
+                  <div className="device-card">
+                    <h3>Pixel 8</h3>
+                    <p>Solid choice</p>
+                  </div>
+                  <div className="device-card">
+                    <h3>Pixel 7a</h3>
+                    <p>Budget friendly</p>
                   </div>
                 </div>
               </div>
 
-              <div className="section">
-                <div className="command-line">
-                  <span className="prompt">$ </span>
-                  <span className="command">./why_cnada.sh</span>
-                </div>
-                <div className="output features">
-                  <div className="feature">[✓] No Google Services tracking</div>
-                  <div className="feature">[✓] Hardened security features</div>
-                  <div className="feature">[✓] Network permission toggle</div>
-                  <div className="feature">[✓] Sensors permission toggle</div>
-                  <div className="feature">[✓] Contact scopes</div>
-                  <div className="feature">[✓] Storage scopes</div>
-                  <div className="feature">[✓] Sandboxed Google Play (optional)</div>
-                  <div className="feature">[✓] Regular security updates</div>
+              <div className="section features-section">
+                <h2 className="retro-title">Why Choose cNada?</h2>
+                <div className="features-grid">
+                  <div className="feature-card">
+                    <span className="feature-icon">🛡️</span>
+                    <h3>No Tracking</h3>
+                    <p>Complete privacy protection</p>
+                  </div>
+                  <div className="feature-card">
+                    <span className="feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Military-grade encryption</p>
+                  </div>
+                  <div className="feature-card">
+                    <span className="feature-icon">⚡</span>
+                    <h3>Fast</h3>
+                    <p>No bloatware slowing you down</p>
+                  </div>
+                  <div className="feature-card">
+                    <span className="feature-icon">🔄</span>
+                    <h3>Updates</h3>
+                    <p>Regular security patches</p>
+                  </div>
+                  <div className="feature-card">
+                    <span className="feature-icon">🎯</span>
+                    <h3>Control</h3>
+                    <p>You own your device</p>
+                  </div>
+                  <div className="feature-card">
+                    <span className="feature-icon">🚀</span>
+                    <h3>Freedom</h3>
+                    <p>Install anything you want</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="phone-visual">
-              <div className="phone-device">
-                <div className="phone-screen">
-                  <div className="phone-terminal">
-                    <div className="terminal-line">root@cNada:~$</div>
-                    <div className="terminal-line">./secure_device.sh</div>
-                    <div className="terminal-line">[<span className="progress-bar">████████</span>] 100%</div>
-                    <div className="terminal-line"> </div>
-                    <div className="terminal-line green-glow">SYSTEM SECURED</div>
-                    <div className="terminal-line"> </div>
-                    <div className="terminal-line">▶ NO TRACKING</div>
-                    <div className="terminal-line">▶ NO SPYWARE</div>
-                    <div className="terminal-line">▶ YOUR PRIVACY</div>
-                    <div className="terminal-line"> </div>
-                    <div className="terminal-line blink">_</div>
+              <div className="phone-frame">
+                <div className="phone-screen-content">
+                  <div className="phone-display">
+                    <h3 className="phone-title">cNada OS</h3>
+                    <div className="phone-features">
+                      <div className="phone-feature">✓ Privacy First</div>
+                      <div className="phone-feature">✓ No Tracking</div>
+                      <div className="phone-feature">✓ Your Data</div>
+                      <div className="phone-feature">✓ Your Rules</div>
+                    </div>
+                    <div className="phone-status-bar">
+                      <span className="status-badge">SECURE</span>
+                    </div>
                   </div>
-                  <div className="phone-logo">cNada</div>
                 </div>
-                <div className="phone-button"></div>
-              </div>
-              <div className="phone-status">
-                <span className="status-indicator">●</span>
-                <span className="status-text">PIXEL DEVICE READY</span>
               </div>
             </div>
           </div>
 
           <div className="cta-section">
             <button 
-              className="terminal-button"
+              className="terminal-button primary"
               onClick={() => navigate('/devices')}
             >
-              <span className="button-text">{'>'} VIEW DEVICES</span>
+              <span className="button-text">VIEW DEVICES</span>
             </button>
             <button className="terminal-button">
-              <span className="button-text">{'>'} LEARN MORE</span>
+              <span className="button-text">LEARN MORE</span>
             </button>
           </div>
 
