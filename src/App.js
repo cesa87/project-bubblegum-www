@@ -14,6 +14,7 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [showLanding, setShowLanding] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
@@ -65,8 +66,7 @@ function App() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simple hardcoded login - you can change these credentials
-    if (username === 'admin' && password === 'password123') {
+    if (username === 'R0m3' && password === 'BlueSuitTie') {
       setIsLoggedIn(true);
       setLoginError('');
     } else {
@@ -124,11 +124,44 @@ function App() {
   };
 
   if (!isLoggedIn) {
+    if (showLanding) {
+      return (
+        <div className="App">
+          <div className="landing-container">
+            <div className="geometric-shape" onClick={() => setShowLanding(false)}>
+              <svg viewBox="-120 -120 240 240" className="dodecahedron">
+                <g className="dodecahedron-group">
+                  {/* Visible front pentagon */}
+                  <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="rgba(245,245,220,0.9)" strokeWidth="2" />
+                  {/* Hidden back pentagon - dashed */}
+                  <polygon points="0,100 76,25 47,-65 -47,-65 -76,25" fill="none" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                  {/* Visible connecting edges */}
+                  <line x1="0" y1="-100" x2="0" y2="100" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                  <line x1="95" y1="-31" x2="76" y2="25" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                  <line x1="-95" y1="-31" x2="-76" y2="25" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                  {/* Hidden connecting edges - dashed */}
+                  <line x1="59" y1="81" x2="47" y2="-65" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                  <line x1="-59" y1="81" x2="-47" y2="-65" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                  {/* Visible side edges */}
+                  <line x1="0" y1="-100" x2="47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                  <line x1="0" y1="-100" x2="-47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                  <line x1="95" y1="-31" x2="47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                  <line x1="-95" y1="-31" x2="-47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                  {/* Hidden side edges - dashed */}
+                  <line x1="59" y1="81" x2="76" y2="25" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                  <line x1="-59" y1="81" x2="-76" y2="25" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <div className="login-container">
           <div className="login-box">
-            <h1 className="login-title">🍬 Project Bubblegum</h1>
             <form onSubmit={handleLogin}>
               <input
                 type="text"
@@ -151,9 +184,6 @@ function App() {
                 Sign In
               </button>
             </form>
-            <div className="login-footer">
-              <small>Demo credentials: admin / password123</small>
-            </div>
           </div>
         </div>
       </div>
@@ -164,7 +194,25 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="app-header">
-          <h1>🍬 Project Bubblegum</h1>
+          <div className="header-shape">
+            <svg viewBox="-120 -120 240 240" className="dodecahedron-small">
+              <g className="dodecahedron-group">
+                <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="rgba(245,245,220,0.9)" strokeWidth="2" />
+                <polygon points="0,100 76,25 47,-65 -47,-65 -76,25" fill="none" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                <line x1="0" y1="-100" x2="0" y2="100" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                <line x1="95" y1="-31" x2="76" y2="25" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                <line x1="-95" y1="-31" x2="-76" y2="25" stroke="rgba(245,245,220,0.8)" strokeWidth="2" />
+                <line x1="59" y1="81" x2="47" y2="-65" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                <line x1="-59" y1="81" x2="-47" y2="-65" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                <line x1="0" y1="-100" x2="47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                <line x1="0" y1="-100" x2="-47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                <line x1="95" y1="-31" x2="47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                <line x1="-95" y1="-31" x2="-47" y2="-65" stroke="rgba(245,245,220,0.7)" strokeWidth="1.5" />
+                <line x1="59" y1="81" x2="76" y2="25" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+                <line x1="-59" y1="81" x2="-76" y2="25" stroke="rgba(245,245,220,0.4)" strokeWidth="1.5" strokeDasharray="5,5" />
+              </g>
+            </svg>
+          </div>
           <button className="logout-button" onClick={() => setIsLoggedIn(false)}>
             Logout
           </button>
