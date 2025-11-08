@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Favicon</title>
+</head>
+<body>
+    <canvas id="canvas" width="32" height="32"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Black background
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // Scale down the coordinates
+        const scale = 0.13;
+        const offsetX = 16;
+        const offsetY = 16;
+        
+        function drawLine(x1, y1, x2, y2, color, width, dashed = false) {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width;
+            if (dashed) {
+                ctx.setLineDash([2, 2]);
+            } else {
+                ctx.setLineDash([]);
+            }
+            ctx.beginPath();
+            ctx.moveTo(x1 * scale + offsetX, y1 * scale + offsetY);
+            ctx.lineTo(x2 * scale + offsetX, y2 * scale + offsetY);
+            ctx.stroke();
+        }
+        
+        const cream = '#F5F5DC';
+        
+        // Draw visible edges (solid)
+        drawLine(0, -100, 95, -31, cream, 1);
+        drawLine(95, -31, 59, 81, cream, 1);
+        drawLine(59, 81, -59, 81, cream, 1);
+        drawLine(-59, 81, -95, -31, cream, 1);
+        drawLine(-95, -31, 0, -100, cream, 1);
+        
+        drawLine(0, -100, 0, 100, cream, 1);
+        drawLine(95, -31, 76, 25, cream, 1);
+        drawLine(-95, -31, -76, 25, cream, 1);
+        
+        drawLine(0, -100, 47, -65, cream, 0.8);
+        drawLine(0, -100, -47, -65, cream, 0.8);
+        drawLine(95, -31, 47, -65, cream, 0.8);
+        drawLine(-95, -31, -47, -65, cream, 0.8);
+        
+        // Draw hidden edges (dashed)
+        drawLine(0, 100, 76, 25, cream, 0.6, true);
+        drawLine(76, 25, 47, -65, cream, 0.6, true);
+        drawLine(47, -65, -47, -65, cream, 0.6, true);
+        drawLine(-47, -65, -76, 25, cream, 0.6, true);
+        drawLine(-76, 25, 0, 100, cream, 0.6, true);
+        
+        drawLine(59, 81, 47, -65, cream, 0.6, true);
+        drawLine(-59, 81, -47, -65, cream, 0.6, true);
+        drawLine(59, 81, 76, 25, cream, 0.6, true);
+        drawLine(-59, 81, -76, 25, cream, 0.6, true);
+        
+        // Convert to PNG and download
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'favicon-32.png';
+            a.click();
+        });
+    </script>
+</body>
+</html>

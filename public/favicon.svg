@@ -1,0 +1,18 @@
+<svg viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-120" y="-120" width="240" height="240" fill="#000000"/>
+  <g>
+    <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#F5F5DC" stroke-width="3"/>
+    <polygon points="0,100 76,25 47,-65 -47,-65 -76,25" fill="none" stroke="#F5F5DC" stroke-width="2" stroke-dasharray="6,6"/>
+    <line x1="0" y1="-100" x2="0" y2="100" stroke="#F5F5DC" stroke-width="3"/>
+    <line x1="95" y1="-31" x2="76" y2="25" stroke="#F5F5DC" stroke-width="3"/>
+    <line x1="-95" y1="-31" x2="-76" y2="25" stroke="#F5F5DC" stroke-width="3"/>
+    <line x1="59" y1="81" x2="47" y2="-65" stroke="#F5F5DC" stroke-width="2" stroke-dasharray="6,6"/>
+    <line x1="-59" y1="81" x2="-47" y2="-65" stroke="#F5F5DC" stroke-width="2" stroke-dasharray="6,6"/>
+    <line x1="0" y1="-100" x2="47" y2="-65" stroke="#F5F5DC" stroke-width="2.5"/>
+    <line x1="0" y1="-100" x2="-47" y2="-65" stroke="#F5F5DC" stroke-width="2.5"/>
+    <line x1="95" y1="-31" x2="47" y2="-65" stroke="#F5F5DC" stroke-width="2.5"/>
+    <line x1="-95" y1="-31" x2="-47" y2="-65" stroke="#F5F5DC" stroke-width="2.5"/>
+    <line x1="59" y1="81" x2="76" y2="25" stroke="#F5F5DC" stroke-width="2" stroke-dasharray="6,6"/>
+    <line x1="-59" y1="81" x2="-76" y2="25" stroke="#F5F5DC" stroke-width="2" stroke-dasharray="6,6"/>
+  </g>
+</svg>
